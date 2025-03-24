@@ -1,4 +1,4 @@
-import { StudentModel } from "./student.model";
+import { Student } from "./student.model";
 
 /* export const createStudentToDb = async (studentData: Student) => {
   // const result = await StudentModel.create(studentData); // built in static method
@@ -17,15 +17,15 @@ import { StudentModel } from "./student.model";
 // }; */
 
 const getAllStudentsFromDb = async () => {
-  const result = await StudentModel.find();
+  const result = await Student.find();
   return result;
 };
 
 const getStudentByIdFromDb = async (id: string) => {
-  const result = await StudentModel.findOne({
+  const result = await Student.findOne({
     id: id,
   });
-  const result2 = await StudentModel.aggregate([
+  const result2 = await Student.aggregate([
     {
       $match: {
         id: id,
@@ -36,7 +36,7 @@ const getStudentByIdFromDb = async (id: string) => {
 };
 
 const deleteStudentFromDB = async (id: string) => {
-  const result = await StudentModel.updateOne(
+  const result = await Student.updateOne(
     { id },
     {
       isDeleted: true,

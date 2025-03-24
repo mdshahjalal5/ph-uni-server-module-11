@@ -105,6 +105,10 @@ const studentSchema = new Schema<TStudent, IStudentModel>(
       unique: true,
       required: [true, "Student is required"],
     },
+    password: {
+      type: String,
+      required: [true, "Password is required sj"],
+    },
     user: {
       type: Schema.Types.ObjectId,
       required: [true, "User id is required"],
